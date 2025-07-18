@@ -1,0 +1,602 @@
+.bottomMargin {
+  margin-bottom: 6px;
+}
+
+/* ---------------------------------------------------- */
+/* -- CORRECTED CODE FOR LAYOUT AND IMAGE SIZE STARTS -- */
+/* ---------------------------------------------------- */
+
+/* Main header container - arranges all content vertically */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  padding: 1rem;
+  width: 100%;
+}
+
+/* Container for the text and images */
+.header-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem; /* Added gap for better spacing */
+  width: 100%;
+  max-width: 1400px;
+  margin-bottom: 40px;
+}
+
+/* YouTube video container - This ensures it appears AFTER the header-content and does not overlap */
+.ytl {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  aspect-ratio: 16 / 9;
+  height: auto !important; /* Override fixed height from old styles */
+  margin: 20px auto 0 auto; /* Provide space from content above */
+  overflow: hidden;
+  border: none;
+}
+
+.ytl iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+
+/* Text and Image Banner Sections */
+.leftsidebanner {
+  flex: 1 1 40%; /* Takes up 40% of the available space */
+  text-align: center;
+}
+
+.banner {
+  flex: 1 1 60%; /* Takes up 60%, giving images more room */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+/*
+  THE DEFINITIVE FIX FOR IMAGE SIZE:
+  Your original CSS had rules like ".header-content div img { height: 100px; }".
+  Since the .banner is a div, this rule was making your images tiny.
+  The rules below are more specific and use "!important" to guarantee they override the old, problematic ones.
+*/
+.banner img {
+  width: 48% !important; /* Force width to be 48% of the banner container */
+  max-width: 450px !important; /* Cap the max size to prevent it being too huge */
+  height: auto !important; /* CRITICAL: This maintains the aspect ratio */
+  min-height: 250px !important; /* CRITICAL: Prevents vertical collapse */
+  object-fit: contain !important;
+  animation: none !important;
+  display: block !important; /* Ensure it behaves as a block element */
+}
+
+
+/* -------------------------- */
+/* -- UNCHANGED CSS STARTS -- */
+/* -------------------------- */
+
+.ytdiv {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  border-style: none;
+  z-index: 10;
+  margin: 40px auto;
+  max-width: 600px;
+  clear: both;
+}
+
+.iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 11;
+}
+
+.section__padding {
+  display: flex;
+}
+
+/* This generic rule was part of the problem, but it is now overridden by the more specific ".banner img" rule */
+.header-content div {
+  width: 100%;
+  height: 100%;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.header-content div h1,
+h2 {
+  font-family: var(--font-family);
+  width: 100%;
+  font-weight: bold;
+  font-size: 62px;
+  color: white;
+  -webkit-background-clip: text;
+  background-clip: text;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.header-content div p {
+  font-family: var(--font-family);
+  width: 70%;
+  font-weight: bold;
+  font-size: 40px;
+  line-height: 60px;
+  text-align: center;
+  background: linear-gradient( to right, #ef5350, #f48fb1, #7e57c2, #2196f3, #26c6da, #43a047, #eeff41, #f9a825, #ff5722 );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* This rule is overridden */
+.header-content img {
+  width: 22%;
+  object-fit: contain;
+}
+
+.header-content a {
+  width: 73%;
+}
+
+/* This rule was the MAIN cause of the problem. It is now overridden. */
+.header-content div img {
+  width: 30%;
+  height: 100px;
+  object-fit: contain;
+  margin: 10px 0;
+}
+
+.header-slider {
+  margin-top: 5rem;
+  padding-top: 10rem;
+  color: #ffffff;
+  width: 100%;
+  display: flex;
+  flex-direction: flex-end;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-slider1 {
+  margin-top: 80px;
+  color: #ffffff;
+  width: 100%;
+  display: flex;
+  flex-direction: flex-end;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-slider .slider {
+  width: 70%;
+}
+
+.header-slider h1 {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 42px;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.trophy {
+  object-fit: contain;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.trophy img {
+  height: 300px;
+  position: relative;
+  z-index: 1;
+}
+
+.googleplay {
+  margin: 7% 0;
+  background-color: white;
+  width: 100%;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 10px;
+  object-fit: contain;
+  border-radius: 20px;
+}
+
+.googleplay p {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 48px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  word-spacing: 1px;
+  color: black;
+}
+
+.gpay-anime {
+  height: 200px;
+  object-fit: contain;
+}
+
+.contests-p {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 35px;
+  line-height: 42px;
+  text-transform: capitalize;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.slider .slider-card {
+  width: 180px !important;
+  height: 200px !important;
+  background: #2a2d3a;
+  border-radius: 20px;
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.slider-card img {
+  border-radius: 50%;
+}
+
+.slider-card-number {
+  position: absolute;
+  top: 5.5%;
+  left: 6.11%;
+  background: var(--primary-color);
+  width: 33px;
+  height: 33px;
+  border-radius: 50%;
+  font-weight: 600;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slider-card p {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: #ffffff;
+  margin-top: 5px;
+}
+
+.slider-card span {
+  font-weight: normal !important;
+}
+
+.slider-img {
+  position: relative;
+}
+
+.verify {
+  position: absolute;
+  right: 5px;
+  bottom: 2px;
+}
+
+.img-abts {
+  height: 300px;
+  width: 300px;
+  object-fit: contain;
+  border-radius: 10%;
+}
+
+/* --------------------------------- */
+/* -- RESPONSIVE MEDIA QUERIES -- */
+/* --------------------------------- */
+
+@media screen and (max-width: 1600px) {
+  .header-slider .slider {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 1350px) {
+  .header-slider .slider {
+    width: 100%;
+  }
+
+  .header-content div {
+    height: auto;
+  }
+  .header-content div h1 {
+    font-size: 36px;
+    line-height: 32px;
+  }
+}
+
+/* On medium screens, stack text and banner vertically */
+@media screen and (max-width: 992px) {
+  .header-content {
+    flex-direction: column; /* Stack text and images */
+    gap: 40px;
+  }
+
+  .leftsidebanner, .banner {
+    flex-basis: auto; /* Reset flex-basis for vertical stacking */
+    width: 100%;
+  }
+
+  .banner {
+    order: 1; /* Images appear first */
+    max-width: 700px; /* Control size in stacked view */
+  }
+
+  .leftsidebanner {
+    order: 2;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .header-content div h1 {
+    margin-top: 1rem;
+    margin-left: 0rem;
+  }
+  .header-content div p {
+    font-size: 25px;
+  }
+  .header-content div h2 {
+    font-size: 55px;
+  }
+  .leftsidebanner {
+    padding: 0 !important;
+  }
+}
+
+/* On small screens, stack the two banner images vertically */
+@media screen and (max-width: 650px) {
+  .banner {
+    flex-direction: column; /* Stack the two images */
+    max-width: 100%;
+    gap: 20px;
+  }
+
+  /* Make images take up the full width of the centered container on mobile */
+  .banner img {
+    width: 100% !important;
+    max-width: 450px !important; /* Cap size on mobile */
+    min-height: 0 !important; /* Reset min-height for mobile stacking */
+  }
+
+  .header-content h1,
+  .header-content div h1,
+  .header-content div h2,
+  .header-content h2 {
+    font-size: 35px;
+    line-height: normal;
+  }
+  .header-content div p {
+    font-size: 22px;
+  }
+  .googleplay {
+    display: block;
+    height: auto;
+    margin-top: 10%;
+    padding: 20px;
+  }
+  .googleplay p {
+    font-size: 25px;
+    text-align: center;
+  }
+  .googleplay img {
+    margin: auto;
+    padding-top: 10%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .slider .slider-card {
+    margin-right: 1rem;
+  }
+  .bids {
+    padding: 2rem 0px !important;
+  }
+  .header-content div h1 {
+    font-size: 25px;
+  }
+  .header-content div p {
+    font-size: 35px;
+  }
+  .header-content div h2 {
+    font-size: 55px;
+  }
+}
+
+/* ---------------------------------- */
+/* -- UNCHANGED CSS (SPLASH/ETC) -- */
+/* ---------------------------------- */
+
+#splash {
+  background: #ffffff00;
+  background-repeat: repeat-y;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  animation: splash 3s ease-in;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+
+#loader {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, 0);
+}
+
+#loader:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  margin-left: -8px;
+  bottom: -170px;
+  width: 3px;
+  background: #fff;
+  background: linear-gradient( to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0) 100% );
+  height: 200px;
+}
+
+#loader:before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  margin-left: 8px;
+  bottom: -190px;
+  width: 3px;
+  background: #000;
+  background: linear-gradient( to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0) 100% );
+  height: 200px;
+}
+
+#splash .anim {
+  height: 100%;
+  position: absolute;
+  left: 50%;
+  width: 100px;
+  transform: translate(-50%, 100%);
+  animation: loader 4s linear;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+
+@keyframes loader {
+  0% {
+    transform: translate(-50%, 110%);
+  }
+  30% {
+    transform: translate(-50%, 50%);
+  }
+  100% {
+    transform: translate(-50%, 0%);
+  }
+}
+
+@keyframes splash {
+  0% {
+    transform: translate(0%, 0%);
+  }
+  50% {
+    transform: translate(0%, 0%);
+  }
+  100% {
+    transform: translate(0%, -100%);
+  }
+}
+
+.games-promo-bg {
+  width: 100%;
+  min-height: 340px;
+  background: url('../../../public/assets/game.avif') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 32px auto;
+  position: relative;
+  z-index: 0;
+  filter: grayscale(0.15) brightness(0.85) contrast(1.1);
+}
+
+.games-promo-bg::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 1;
+}
+
+.games-promo-content {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  text-align: center;
+  padding: 40px 32px 32px 32px;
+  max-width: 600px;
+  background: rgba(30, 30, 30, 0.92);
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.28);
+  margin: 0 auto;
+  backdrop-filter: blur(2px);
+}
+
+.games-promo-content h2 {
+  font-size: 2.6rem;
+  font-weight: 900;
+  margin-bottom: 16px;
+  color: #fff;
+  text-shadow: 0 2px 12px #000, 0 1px 0 #fff;
+  letter-spacing: 1.5px;
+}
+
+.games-promo-content p {
+  font-size: 1.15rem;
+  margin-bottom: 28px;
+  color: #e2e8f0;
+  text-shadow: 0 1px 8px #000;
+  line-height: 1.6;
+}
+
+.games-promo-btn {
+  display: inline-block;
+  padding: 14px 40px;
+  background: #fff;
+  color: #000;
+  font-weight: 800;
+  font-size: 1.15rem;
+  border: none;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s, transform 0.1s, box-shadow 0.2s;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
+  cursor: pointer;
+  letter-spacing: 1px;
+}
+
+.games-promo-btn:hover {
+  background: #000;
+  color: #fff;
+  transform: translateY(-2px) scale(1.04);
+  border: 2px solid #fff;
+  box-shadow: 0 4px 24px rgba(255, 255, 255, 0.08);
+}

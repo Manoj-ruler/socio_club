@@ -1,0 +1,45 @@
+.appbar {
+  display: flex !important;
+  background-color: white !important;
+  border-radius: 10px 10px 0 0 !important;
+}
+
+.text-block {
+  color: black !important;
+  text-align: center;
+  align-self: center;
+  justify-self: center;
+  font-weight: bold;
+}
+
+.toolbar a {
+  display: flex;
+  gap: 6px;
+}
+
+.toolbar {
+  padding: 5px;
+}
+
+.w-inline-block {
+  width: 45%;
+  text-align: center !important;
+  align-self: center;
+  justify-self: center;
+}
+
+@media screen and (max-width: 300px) {
+  .w-inline-block {
+    width: auto !important;
+  }
+  .w-inline-block img {
+    height: 3rem;
+    width: auto !important;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .appbar {
+    display: none !important;
+  }
+}
